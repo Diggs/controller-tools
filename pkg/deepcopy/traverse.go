@@ -26,8 +26,8 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	"sigs.k8s.io/controller-tools/pkg/loader"
-	"sigs.k8s.io/controller-tools/pkg/markers"
+	"github.com/Diggs/controller-tools/pkg/loader"
+	"github.com/Diggs/controller-tools/pkg/markers"
 )
 
 // NB(directxman12): This code is a bit of a byzantine mess.
@@ -94,7 +94,7 @@ func (l *importsList) NeedImport(importPath string) string {
 	// we get an actual path from Package, which might include venddored
 	// packages if running on a package in vendor.
 	if ind := strings.LastIndex(importPath, "/vendor/"); ind != -1 {
-		importPath = importPath[ind+8: /* len("/vendor/") */]
+		importPath = importPath[ind+8:/* len("/vendor/") */ ]
 	}
 
 	// check to see if we've already assigned an alias, and just return that.
